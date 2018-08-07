@@ -740,7 +740,6 @@ export default function sortableContainer(
           ] = `${transitionDuration}ms`
         }
         if (this.axis.x) {
-          console.log("I am in x axis", translate);
           if (this.axis.y) {
             // Calculations for a grid setup
             if (
@@ -782,17 +781,16 @@ export default function sortableContainer(
               translate.x = -(
                 this.dragLayer.width + this.dragLayer.marginOffset.x
               )
-              console.log("Animate", translate);
               if (
                 edgeOffset.left + translate.x <
                 this.dragLayer.containerBoundingRect.left + offset.width
               ) {
-                console.log("Previous Node", prevNode);
-                console.log("Edge Offset", edgeOffset);
                 // If it moves passed the left bounds, then animate it to the last position of the previous row.
                 // We just use the offset of the previous node to calculate where to move, because that node's original position
                 // is exactly where we want to go
                 if (prevNode.edgeOffset || prevNode.edgeOffset === undefined) {
+                  //7th August 2018
+                  //Bug Found Added. code for first handing.
                   prevNode.edgeOffset = prevNode.edgeOffset || {
                     left: 0,
                     top: 0
@@ -801,7 +799,6 @@ export default function sortableContainer(
                   translate.y = prevNode.edgeOffset.top - edgeOffset.top
                 }
               }
-              console.log("I am in x axis modified", translate);
               this.newIndex = index
             }
           } else if (
@@ -809,7 +806,6 @@ export default function sortableContainer(
             sortingOffset.left + scrollDifference.left + offset.width >=
               edgeOffset.left
           ) {
-            console.log("I am in xy axis", translate);
             translate.x = -(
               this.dragLayer.width + this.dragLayer.marginOffset.x
             )
@@ -819,7 +815,6 @@ export default function sortableContainer(
             sortingOffset.left + scrollDifference.left <=
               edgeOffset.left + offset.width
           ) {
-            console.log("I am in xy last axis", translate);
             translate.x = this.dragLayer.width + this.dragLayer.marginOffset.x
 
             if (this.newIndex == null) {
@@ -827,7 +822,6 @@ export default function sortableContainer(
             }
           }
         } else if (this.axis.y) {
-          console.log("I am in y axis", translate);
           if (
             index > this.index &&
             sortingOffset.top + scrollDifference.top + this.dragLayer.height >=
@@ -854,7 +848,6 @@ export default function sortableContainer(
         node.style[`${vendorPrefix}Transform`] = `translate3d(${
           translate.x
         }px,${translate.y}px,0)`
-        console.log("Final Style", translate);
       }
 
       if (this.newIndex == null) {
