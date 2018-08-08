@@ -5,7 +5,7 @@ import {
   sortableElement,
   arrayMove,
   DragLayer
-} from './react-sortable-multiple-hoc'
+} from 'snaphy-react-sortable-dnd'
 
 const dragLayer = new DragLayer()
 

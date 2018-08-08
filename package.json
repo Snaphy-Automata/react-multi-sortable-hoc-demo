@@ -1,5 +1,5 @@
 {
-  "name": "React-Multi-Drag-and-Drop-Demo",
+  "name": "React-Drag-And-Drop",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "snaphy-react-sortable-dnd": "1.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
